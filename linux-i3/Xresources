@@ -1,16 +1,3 @@
-! rofi.color-window: #151718
-! rofi.color-normal: #d6d6d6
-! rofi.hlbg: #41535B
-! rofi.hlfg: #ffffff
-! rofi.bc: #151718
-! rofi.eh: 1
-! rofi.width: 50
-! rofi.padding: 30
-! rofi.lines: 10
-! rofi.line-margin: 5
-! rofi.font: System San Francisco Display 28
-! rofi.opacity: 80
-
 rofi.show-icons:            true
 rofi.modi:                  drun,run,clipboard:greenclip print,connect:connect
 rofi.lines:                 7
@@ -22,7 +9,7 @@ rofi.separator-style:       none
 rofi.hide-scrollbar:        true
 rofi.sidebar-mode:          true
 rofi.line-margin:           0
-rofi.font:                  System San Francisco Display 28
+rofi.font:                  System San Francisco Display 14
 rofi.theme: ~/.config/rofi/custom-nord.rasi
  
 URxvt*background:                     #151718
@@ -74,7 +61,7 @@ URxvt*color21:                        #eeeeee
 
 Xcursor.size: 16W
 URxvt.scrollBar: false
-URxvt.font: xft:Hack:size=8, xft:SauceCodePro Nerd Font:size=5, xft:Source Han Serif TW:size=8, xft:Source Han Serif CN:size=8, xft:Symbola:size=14
+URxvt.font: xft:Hack:size=12, xft:SauceCodePro Nerd Font:size=10, xft:Source Han Serif TW:size=12, xft:Source Han Serif CN:size=12, xft:Symbola:size=14
 
 !URxvt*font: xft:hack:size=11, xft:symbola:size=11
 
@@ -89,7 +76,7 @@ URxvt*fading:  30
 URxvt.internalBorder: 0
 URxvt.externalBorder: 0
 
-Xft.dpi: 276
+Xft.dpi: 96
 ! ranger image preview need this
 URxvt*.termName: screen-256color
 !Urxvt.letterSpacing: -1
