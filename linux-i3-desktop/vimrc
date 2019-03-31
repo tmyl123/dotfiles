@@ -12,7 +12,16 @@ set noautoindent
 set number
 set incsearch
 set cursorline
+
+" tab 轉為空格
+set expandtab
+
+" tab 輸出兩個空格
 set tabstop=2
+
+" 縮排為兩個空格
+set shiftwidth=4
+
 set hlsearch
 
 "for highlight group

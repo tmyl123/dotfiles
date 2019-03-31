@@ -7,7 +7,7 @@ configfiles=( "zshrc" "tmux.conf" "Xresources" )
 
 for cf in "${configfolders[@]}"
 do
-  cp -r "$cf" ~/.config/"$cf"
+  cp -r "./config/$cf" ~/.config/
 done
 
 for cf in "${configfiles[@]}"
@@ -15,4 +15,4 @@ do
   cp $cf ~/".$cf" 
 done
 
-cat fonts | xargs yay -S
+#cat fonts | xargs yay -S

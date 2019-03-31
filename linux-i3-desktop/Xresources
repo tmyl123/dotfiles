@@ -1,5 +1,5 @@
 rofi.show-icons:            true
-rofi.modi:                  drun,run,clipboard:greenclip print
+rofi.modi:                  drun,run,clipboard:greenclip print,ssh:/home/pp/.config/rofi/custom_modi/ssh/rofi_ssh.sh
 rofi.lines:                 7
 rofi.line-padding:          10
 rofi.matching:              regex
@@ -86,8 +86,8 @@ URxvt*.termName: screen-256color
 !urxvt*background: rgba:0000/0000/0200/c800
 
 ! Fake transparency
-urxvt*transparent: true
-urxvt*shading: 20
+!urxvt*transparent: true
+!urxvt*shading: 20
 !URxvt*.blurRadius: 50
 
 !URxvt*dynamicColors: on
