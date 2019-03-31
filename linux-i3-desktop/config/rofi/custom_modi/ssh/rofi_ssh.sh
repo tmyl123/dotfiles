@@ -12,6 +12,5 @@ if [ "$@" ]; then
     "$CWD"/ssh_wrapper.sh "$useraddress" > /dev/null
   fi
   else
-    echo "$editStr"
-    jq -r '.[] | .hostname + " => " + .user + "@" + .address' "$CWD"/hosts.json
+    jq -r '.[] | .hostname + " => " + .user + "@" + .address' "$CWD"/hosts.json | column -t
 fi
