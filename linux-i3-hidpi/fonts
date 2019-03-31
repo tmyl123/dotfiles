@@ -1,9 +1,10 @@
-adobe-source-han-sans-otc-fonts
-adobe-source-han-serif-cn-fonts
-adobe-source-han-serif-tw-fonts
-nerd-fonts-source-code-pro
-otf-font-awesome
-ttf-hack
-ttf-material-icons
-ttf-symbola
-ttf-wps-fonts
+adobe-source-han-sans-otc-fonts 2.000-2
+adobe-source-han-serif-cn-fonts 1.001-2
+adobe-source-han-serif-tw-fonts 1.001-2
+nerd-fonts-source-code-pro 2.0.0-4
+ttf-hack 3.003-1
+ttf-material-icons r124.224895a86-1
+ttf-symbola 12.00-1
+ttf-wps-fonts 1.0-3
+xorg-fonts-100dpi 1.0.3-4
+xorg-fonts-75dpi 1.0.3-4

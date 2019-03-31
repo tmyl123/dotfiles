@@ -12,7 +12,7 @@
 ! rofi.opacity: 80
 
 rofi.show-icons:            true
-rofi.modi:                  drun,run,clipboard:greenclip print,connect:connect
+rofi.modi:                  drun,run,clipboard:greenclip print,ssh:/home/pp/.config/rofi/custom_modi/ssh/rofi_ssh.sh
 rofi.lines:                 7
 rofi.line-padding:          10
 rofi.matching:              regex
