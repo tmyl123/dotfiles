@@ -1,0 +1,35 @@
+{
+    "rdp": [{
+        "hostname": "GSAD01",
+        "address": "10.2.7.33",
+        "customer": "MO011",
+        "user": "moadmin",
+        "password": "1qaz@WSX"
+    }],
+    "ssh": [{
+        "hostname": "tomme.me",
+        "address": "128.199.91.217",
+        "customer": "PP",
+        "user": "pp"
+    }, {
+        "hostname": "GITLAB",
+        "address": "192.168.150.1",
+        "customer": "MOO",
+        "user": "moadmin"
+    },{
+        "hostname": "DCC",
+        "address": "149.28.154.17",
+        "customer": "PP",
+        "user": "root"
+    },{
+        "hostname": "BLOG",
+        "address": "128.199.91.217",
+        "customer": "PP",
+        "user": "pp"
+    },{
+        "hostname": "ES",
+        "address": "128.199.147.204",
+        "customer": "PP",
+        "user": "pp"
+    }]
+}
