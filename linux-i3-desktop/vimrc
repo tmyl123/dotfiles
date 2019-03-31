@@ -1,0 +1,92 @@
+syntax on
+set background=dark
+
+set backspace=2
+set laststatus=2
+set encoding=utf-8
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+set t_Co=256
+set noautoindent
+set number
+set incsearch
+set cursorline
+set tabstop=2
+set hlsearch
+
+"for highlight group
+highlight Search ctermfg=0 ctermbg=226
+hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
+hi SignatureMarkText ctermfg=167
+
+set ignorecase
+set mouse=a
+
+"this part is the config of vundle
+set nocompatible              " required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins
+Plugin 'gmarik/Vundle.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-surround'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'chrisbra/Colorizer'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'scrooloose/syntastic'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'w0rp/ale'
+
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚡'
+let g:ale_open_list = 1
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" Custom hotkeys
+" remap breakline
+map <C-m> :%s/<C-v><C-m>/\r/g<CR>
+
+" NERDTree
+map <C-t> :NERDTreeToggle<CR>
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+let NERDTreeShowHidden=1
+let NERDTreeWinSize=31
+let g:nerdtree_tabs_open_on_console_startup=1
+" let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+let NERDTreeShowBookmarks=1
+
+" JsBeautify
+map <C-j> :call JsBeautify()<cr>
+" " or
+" autocmd FileType javascript noremap <buffer>  <C-j> :call JsBeautify()<cr>
+" " for json
+" autocmd FileType json noremap <buffer> <C-j> :call JsonBeautify()<cr>
+" " for jsx
+" autocmd FileType jsx noremap <buffer> <C-j> :call JsxBeautify()<cr>
+" " for html
+" autocmd FileType html noremap <buffer> <C-j> :call HtmlBeautify()<cr>
+" " for css or scss
+" autocmd FileType css noremap <buffer> <C-j> :call CSSBeautify()<cr>
+
+au BufRead,BufNewFile *.vue set filetype=html
+
+"map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeQuitOnOpen=0
+
+let g:NERDTreeChDirMode       = 2
+let g:ctrlp_working_path_mode = 'rw'
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
