@@ -288,5 +288,6 @@ exec --no-startup-id urxvt -name dropdown -e tmux new -s scratchpad
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] move scratchpad
 bindsym $mod+u scratchpad show
+bindsym --release F4 exec xkill
 
 bindsym $mod+s exec rofi -dmenu -p "Search:" | xargs -I{} firefox "https://www.google.com/search?q={}"
