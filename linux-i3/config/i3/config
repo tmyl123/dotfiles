@@ -127,7 +127,7 @@ set $workspace3 "3:"
 set $workspace4 "4:"
 set $workspace5 "5:"
 set $workspace6 "6:"
-set $workspace7 "7:"
+set $workspace7 "7:"
 set $workspace8 "8:"
 set $workspace9 "9:"
 set $workspace10 "10:"
@@ -209,25 +209,25 @@ bindsym $mod+r mode "resize"
 
  exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-#  bar {
-#          #status_command i3status
-# #         status_command i3blocks -c ~/.i3/i3blocks.conf
-#  	font pango: System San Francisco Display, FontAwesome 18
-#          position top
-#          strip_workspace_numbers yes
-#          #bindsym button4 nop
-#          #bindsym button5 nop
-#          colors {
-#                separator $base03
-#                background $base01
-#                statusline $base05
-#  #                        border  background text
-#                focused_workspace  $base01 $base01    $base07
-#                active_workspace   $base01 $base02    $base03
-#                inactive_workspace $base01 $base01    $base03
-#                urgent_workspace   $base01 $base01    $base08
-#      }
-#  }
+ # bar {
+ #         #status_command i3status
+ ##         status_command i3blocks -c ~/.i3/i3blocks.conf
+ # 	font pango: System San Francisco Display, FontAwesome 18
+ #         position top
+ #         strip_workspace_numbers yes
+ #         #bindsym button4 nop
+ #         #bindsym button5 nop
+ #         colors {
+ #               separator $base03
+ #               background $base01
+ #               statusline $base05
+ # #                        border  background text
+ #               focused_workspace  $base01 $base01    $base07
+ #               active_workspace   $base01 $base02    $base03
+ #               inactive_workspace $base01 $base01    $base03
+ #               urgent_workspace   $base01 $base01    $base08
+ #     }
+ # }
 
 
 # Pulse Audio controls
@@ -269,12 +269,12 @@ exec_always gsettings set org.nemo.desktop show-desktop-icons false
 exec_always --no-startup-id compton -f
 exec_always --no-startup-id greenclip daemon
 
-gaps inner 8
-gaps outer 8
+gaps inner 12
+gaps outer 12
 
 # gaps horizontal 3
 # gaps vertical 3
-# gaps top 3
+#gaps top 3
 # gaps right 3
 # gaps bottom 3
 # gaps left 3

@@ -112,7 +112,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 # For zsh-syntax-highlight
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Source python startup file
 export PYTHONSTARTUP=~/.pythonrc
@@ -129,3 +129,18 @@ export PATH="/usr/local/Cellar/vim/8.1.0500_1/bin:$PATH"
 export PATH="/usr/local/Cellar/perl/5.28.0/bin:$PATH"
 
 export EDITOR=vim
+
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux: server" ]; then
+	if [[ "$@" == *"@"* ]]; then
+          title="$@"
+	else
+	  title=$($(whoami)@"$@")
+        fi
+        tmux rename-window "$title"
+        command ssh "$@"
+        tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+        #command ssh "$@"
+    fi
+}
