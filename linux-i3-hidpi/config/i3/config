@@ -288,3 +288,4 @@ for_window [instance="dropdown"] move scratchpad
 bindsym $mod+u scratchpad show
 
 bindsym $mod+s exec rofi -dmenu -p "Search:" | xargs -I{} firefox "https://www.google.com/search?q={}"
+bindsym F4 --release exec xkill

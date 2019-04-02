@@ -1,0 +1,6 @@
+[{
+    "hostname": "MY_WEB",
+    "address": "10.10.10.10",
+    "user": "foo",
+    "pass": "mypassword"
+}]

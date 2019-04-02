@@ -12,7 +12,7 @@
 ! rofi.opacity: 80
 
 rofi.show-icons:            true
-rofi.modi:                  drun,run,clipboard:greenclip print,ssh:/home/pp/.config/rofi/custom_modi/ssh/rofi_ssh.sh
+rofi.modi:                  drun,clipboard:greenclip print,ssh:/home/pp/.config/rofi/custom_modi/ssh/rofi_ssh.sh,rdp:/home/pp/.config/rofi/custom_modi/rdp/rofi_rdp.sh,bookmark:/home/pp/.config/rofi/custom_modi/bookmark/rofi_bookmark.sh
 rofi.lines:                 7
 rofi.line-padding:          10
 rofi.matching:              regex
@@ -22,6 +22,7 @@ rofi.separator-style:       none
 rofi.hide-scrollbar:        true
 rofi.sidebar-mode:          true
 rofi.line-margin:           0
+rofi.columns:               3 
 rofi.font:                  System San Francisco Display 28
 rofi.theme: ~/.config/rofi/custom-nord.rasi
  

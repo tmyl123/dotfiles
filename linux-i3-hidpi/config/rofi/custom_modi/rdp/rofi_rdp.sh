@@ -8,8 +8,7 @@ if [ "$@" ]; then
     "$CWD"/edit_wrapper.sh "$CWD"/hosts.json > /dev/null
   else
     useraddress=$(awk '{print $NF}' <<< "$@")
-    #urxvt -e sh -c 'ssh user@host'
-    "$CWD"/ssh_wrapper.sh "$useraddress" > /dev/null
+    "$CWD"/rdp_wrapper.sh "$useraddress" > /dev/null
   fi
   else
     echo "$editStr"
