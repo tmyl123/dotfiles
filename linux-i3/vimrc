@@ -41,6 +41,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'w0rp/ale'
+Plugin 'vim-nerdtree-tabs'
 
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
@@ -66,7 +67,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeShowBookmarks=1
 
 " JsBeautify
-map <C-j> :call JsBeautify()<cr>
+map <C-b> :call JsBeautify()<cr>
 " " or
 " autocmd FileType javascript noremap <buffer>  <C-j> :call JsBeautify()<cr>
 " " for json
