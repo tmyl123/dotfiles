@@ -3,7 +3,7 @@
 [ -d ~/.config ] || mkdir ~/.config
 
 configfolders=( "custom_scripts" "dunst" "i3" "polybar" "rofi" "ranger")
-configfiles=( "zshrc" "tmux.conf" "Xresources" )
+configfiles=( "zshrc" "tmux.conf" "Xresources" "vimrc")
 
 for cf in "${configfolders[@]}"
 do
