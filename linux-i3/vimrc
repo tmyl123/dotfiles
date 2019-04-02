@@ -50,7 +50,8 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'w0rp/ale'
-Plugin 'vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'mkitt/tabline.vim'
 
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
@@ -89,6 +90,9 @@ let NERDTreeQuitOnOpen=0
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
 
+" 使用空白開啟資料夾
+let NERDTreeMapActivateNode='<space>'
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
@@ -102,3 +106,6 @@ map  <C-f> :tabfirst<CR>
 " autocmd VimEnter * NERDTree
 " autocmd TabEnter * NERDTree
 " autocmd BufEnter * NERDTreeMirror
+" hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+" hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
