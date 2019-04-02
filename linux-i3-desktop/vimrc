@@ -12,6 +12,8 @@ set noautoindent
 set number
 set incsearch
 set cursorline
+set tabstop=2
+set hlsearch
 
 " tab 轉為空格
 set expandtab
@@ -21,8 +23,6 @@ set tabstop=2
 
 " 縮排為兩個空格
 set shiftwidth=4
-
-set hlsearch
 
 "for highlight group
 highlight Search ctermfg=0 ctermbg=226
@@ -45,12 +45,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'chrisbra/Colorizer'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'w0rp/ale'
+Plugin 'vim-nerdtree-tabs'
 
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
@@ -66,7 +66,7 @@ filetype plugin indent on    " required
 map <C-m> :%s/<C-v><C-m>/\r/g<CR>
 
 " NERDTree
-map <C-t> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 let NERDTreeShowHidden=1
@@ -76,22 +76,14 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeShowBookmarks=1
 
 " JsBeautify
-map <C-j> :call JsBeautify()<cr>
-" " or
-" autocmd FileType javascript noremap <buffer>  <C-j> :call JsBeautify()<cr>
-" " for json
-" autocmd FileType json noremap <buffer> <C-j> :call JsonBeautify()<cr>
-" " for jsx
-" autocmd FileType jsx noremap <buffer> <C-j> :call JsxBeautify()<cr>
-" " for html
-" autocmd FileType html noremap <buffer> <C-j> :call HtmlBeautify()<cr>
-" " for css or scss
-" autocmd FileType css noremap <buffer> <C-j> :call CSSBeautify()<cr>
+map <C-b> :call JsBeautify()<cr>
 
 au BufRead,BufNewFile *.vue set filetype=html
 
 "map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd QuitPre * if empty(&bt) | lclose | endif
+
 let NERDTreeQuitOnOpen=0
 
 let g:NERDTreeChDirMode       = 2
@@ -99,3 +91,14 @@ let g:ctrlp_working_path_mode = 'rw'
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+map  <C-j> :tabn<CR>
+map  <C-k> :tabp<CR>
+map  <C-t> :tabnew<CR>
+map  <C-x> :tabclose<CR>
+map  <C-f> :tabfirst<CR>
+
+"au VimEnter *  NERDTree
+" autocmd VimEnter * NERDTree
+" autocmd TabEnter * NERDTree
+" autocmd BufEnter * NERDTreeMirror
