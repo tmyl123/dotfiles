@@ -15,6 +15,15 @@ set cursorline
 set tabstop=2
 set hlsearch
 
+" tab 轉為空格
+set expandtab
+
+" tab 輸出兩個空格
+set tabstop=2
+
+" 縮排為兩個空格
+set shiftwidth=4
+
 "for highlight group
 highlight Search ctermfg=0 ctermbg=226
 hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
@@ -68,16 +77,6 @@ let NERDTreeShowBookmarks=1
 
 " JsBeautify
 map <C-b> :call JsBeautify()<cr>
-" " or
-" autocmd FileType javascript noremap <buffer>  <C-j> :call JsBeautify()<cr>
-" " for json
-" autocmd FileType json noremap <buffer> <C-j> :call JsonBeautify()<cr>
-" " for jsx
-" autocmd FileType jsx noremap <buffer> <C-j> :call JsxBeautify()<cr>
-" " for html
-" autocmd FileType html noremap <buffer> <C-j> :call HtmlBeautify()<cr>
-" " for css or scss
-" autocmd FileType css noremap <buffer> <C-j> :call CSSBeautify()<cr>
 
 au BufRead,BufNewFile *.vue set filetype=html
 
