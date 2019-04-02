@@ -89,6 +89,9 @@ let NERDTreeQuitOnOpen=0
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
 
+" 使用空白開啟資料夾
+let NERDTreeMapActivateNode='<space>'
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
