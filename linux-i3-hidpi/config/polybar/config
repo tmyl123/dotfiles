@@ -51,9 +51,9 @@ font-6 = "material icons:pixelsize=26;3"
 font-7 = "Source Han Serif CN:pixelsize=26;3"
 font-8 = "Source Han Serif TW:pixelsize=26;3"
 
-modules-left = i3 xwindow
+modules-left = i3 spotify
 #modules-center = mpd spotify 
-modules-center = spotify 
+modules-center = xwindow
 
 modules-right = cpu memory backlight-acpi alsa wlan eth battery temperature date
 
