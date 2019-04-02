@@ -50,7 +50,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'w0rp/ale'
-Plugin 'vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
