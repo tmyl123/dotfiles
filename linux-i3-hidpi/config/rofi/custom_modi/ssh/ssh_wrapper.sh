@@ -12,4 +12,4 @@ port=$(jq --arg address "$address" --arg user "$user"  '
 #echo $user $address $pass > /tmp/foo
 
 #sshpass -p $pass ssh $user@$address
-urxvt -e sh -c "sshpass -p $pass ssh $user@$address -p $port" &
+urxvt -e sh -c "sshpass -p $pass ssh $user@$address -p $port  -o 'StrictHostKeyChecking=no'" &
