@@ -52,6 +52,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'w0rp/ale'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'mkitt/tabline.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Valloric/YouCompleteMe'
 
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
@@ -68,7 +71,7 @@ map <C-m> :%s/<C-v><C-m>/\r/g<CR>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowLineNumbers=1
+" let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 let NERDTreeShowHidden=1
 let NERDTreeWinSize=31
@@ -82,7 +85,7 @@ map <C-b> :call JsBeautify()<cr>
 au BufRead,BufNewFile *.vue set filetype=html
 
 "map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " autocmd QuitPre * if empty(&bt) | lclose | endif
 
 let NERDTreeQuitOnOpen=0
@@ -96,11 +99,12 @@ let NERDTreeMapActivateNode='<space>'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-map  <C-j> :tabn<CR>
-map  <C-k> :tabp<CR>
 map  <C-t> :tabnew<CR>
 map  <C-x> :tabclose<CR>
-map  <C-f> :tabfirst<CR>
+map  <C-j> :tabn<CR>
+map  <C-k> :tabp<CR>
+map  <C-h> :tabfirst<CR>
+map  <C-l> :tablast<CR>
 
 "au VimEnter *  NERDTree
 " autocmd VimEnter * NERDTree
@@ -109,3 +113,18 @@ map  <C-f> :tabfirst<CR>
 " hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 " hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 " hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCompactSexyComs = 1
+
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
+
+set wildmenu

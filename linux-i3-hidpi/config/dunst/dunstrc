@@ -229,3 +229,6 @@
 #    urgency = normal
 #
 
+[play_sound]
+    summary = "*"
+    script = /home/pp/.config/dunst/play_notify.sh
