@@ -291,3 +291,4 @@ bindsym $mod+u scratchpad show
 
 bindsym $mod+s exec rofi -dmenu -p "Search:" | xargs -I{} firefox "https://www.google.com/search?q={}"
 bindsym F4 --release exec xkill
+bindsym F2 exec xrandr --output eDP-1-1 --auto --output HDMI-1-2 --rotate left --auto --left-of eDP-1-1
