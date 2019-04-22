@@ -1,16 +1,29 @@
 [colors]
-# background = ${xrdb:color0:#222}
-background = #green
-#background = #aa1f222d
-#background-alt = #444
-background-alt = #green
-# foreground = #dfdfdf
-foreground = #7780a1
-foreground-alt = #555
+# # background = ${xrdb:color0:#222}
+# background = #green
+# #background = #aa1f222d
+# #background-alt = #444
+# background-alt = #green
+# # foreground = #dfdfdf
+# foreground = #7780a1
+# foreground-alt = #555
+# 
+# primary = #ffb52a
+# secondary = #e60053
+# alert = #bd2c40
 
+# background = ${xrdb:background:#222}
+#foreground = ${xrdb:foreground:#222}
+
+# 主要橫幅顏色
+background = #1d1f21
+# 主要字體顏色
+foreground = #d8dee8
+foreground-alt = #555
 primary = #ffb52a
-secondary = #e60053
+secondary = #fff
 alert = #bd2c40
+
 
 [bar/example]
 monitor = ${env:MONITOR:HDMI-A-0}
@@ -21,14 +34,14 @@ offset-y = 0%
 radius = 0.0
 fixed-center = true
 
-pseudo-transparency = true
+# pseudo-transparency = true
 # tray-transparent = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = #f00
+line-size = 2
+# line-color = #f00
 
 border-top-size = 0
 border-left-size = 0
@@ -55,7 +68,7 @@ modules-left = i3 spotify
 #modules-center = mpd spotify 
 modules-center = xwindow
 
-modules-right = cpu memory alsa eth temperature date
+modules-right =  alsa cpu memory eth temperature date
 
 tray-position = right
 tray-padding = 2
@@ -112,21 +125,24 @@ type = internal/i3
 format = <label-state> <label-mode>
 wrapping-scroll = false
 pin-workspaces = true
+# strip-wsnumbers = true
 
 index-sort = true
 
 label-mode = %mode%
 label-mode-padding = 2
 # label-mode-background = #e60053
-label-mode-background = #1f222d
+# label-mode-background = #1f222d
 #label-mode-background = #green
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
 
 label-focused = %icon% %name%
 label-focused-foreground = #ffffff
 # label-focused-background = #3f3f3f
 #label-focused-background = #1f222d
 label-focused-background = #green
-label-focused-underline = #fba922
+label-focused-underline = #ee829f
 label-focused-padding = 0
 
 label-urgent = %icon% %name%
@@ -183,7 +199,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 ;format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = #ee829f
 label = %percentage:2%%
 
 [module/memory]
@@ -191,7 +207,7 @@ type = internal/memory
 interval = 2
 format-prefix = "▦ "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = #a5ffe1
 label = %percentage_used%%
 
 format-connected = <ramp-signal> <label-connected>
@@ -218,7 +234,7 @@ type = internal/network
 interface = enp33s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = #c0b7f9
 format-connected-prefix = "📶"
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -241,7 +257,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 ;format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = #97bbf7
 
 label = %date% %time%
 
@@ -257,21 +273,21 @@ format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
-bar-volume-width = 5
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-width = 10
+bar-volume-foreground-0 = #a5ffe1
+bar-volume-foreground-1 = #a5ffe1
+bar-volume-foreground-2 = #a5ffe1
+bar-volume-foreground-3 = #a5ffe1
+bar-volume-foreground-4 = #a5ffe1
+bar-volume-foreground-5 = #ffefcc
+bar-volume-foreground-6 = #ee829f
 bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator = ━
+bar-volume-indicator-font = 1
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 1
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 format-charging = <animation-charging> <label-charging>

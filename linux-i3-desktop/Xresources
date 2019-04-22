@@ -15,9 +15,13 @@ rofi.font: Hack 14
 ! rofi.font: TerminessTTFNerdFontMono 14
 rofi.theme: ~/.config/rofi/custom-nord.rasi
  
-URxvt*background:                     #151718
-URxvt*foreground:                     #d6d6d6
-URxvt*cursorColor:                    #d6d6d6
+!URxvt*background:                     #151718
+!URxvt*foreground:                     #d6d6d6
+!URxvt*cursorColor:                    #d6d6d6
+
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #b48ead
 
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
@@ -91,8 +95,8 @@ URxvt*.termName: screen-256color
 !urxvt*background: rgba:0000/0000/0200/c800
 
 ! Fake transparency
-urxvt*transparent: true
-urxvt*shading: 20
+! urxvt*transparent: true
+! urxvt*shading: 20
 !URxvt*.blurRadius: 50
 
 !URxvt*dynamicColors: on
