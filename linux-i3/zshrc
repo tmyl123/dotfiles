@@ -94,6 +94,8 @@ alias s="subl ."
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias rmt="mv $@ ~/Trash" 
 alias open="xdg-open"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 
 alias td="todolist"
@@ -130,17 +132,17 @@ export PATH="/usr/local/Cellar/perl/5.28.0/bin:$PATH"
 
 export EDITOR=vim
 
-ssh() {
-    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux: server" ]; then
-	if [[ "$@" == *"@"* ]]; then
-          title="$@"
-	else
-	  title=$($(whoami)@"$@")
-        fi
-        tmux rename-window "$title"
-        command ssh "$@"
-        tmux set-window-option automatic-rename "on" 1>/dev/null
-    else
-        #command ssh "$@"
-    fi
-}
+# ssh() {
+#     if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux: server" ]; then
+# 	if [[ "$@" == *"@"* ]]; then
+#           title="$@"
+# 	else
+# 	  title=$($(whoami)@"$@")
+#         fi
+#         tmux rename-window "$title"
+#         command ssh "$@"
+#         tmux set-window-option automatic-rename "on" 1>/dev/null
+#     else
+#         #command ssh "$@"
+#     fi
+# }

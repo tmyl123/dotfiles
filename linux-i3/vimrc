@@ -1,5 +1,6 @@
 syntax on
 set background=dark
+"colorscheme gruvbox
 
 set backspace=2
 set laststatus=2
@@ -43,6 +44,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'prettier/vim-prettier'
 Plugin 'chrisbra/Colorizer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
@@ -55,6 +57,7 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'joshdick/onedark.vim'
 
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
@@ -63,6 +66,8 @@ let g:ale_open_list = 1
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+colorscheme onedark
 
 
 " Custom hotkeys
@@ -101,8 +106,8 @@ let g:ctrlp_cmd = 'CtrlP'
 
 map  <C-t> :tabnew<CR>
 map  <C-x> :tabclose<CR>
-map  <C-j> :tabn<CR>
-map  <C-k> :tabp<CR>
+map  <C-k> :tabn<CR>
+map  <C-j> :tabp<CR>
 map  <C-h> :tabfirst<CR>
 map  <C-l> :tablast<CR>
 

@@ -64,7 +64,7 @@ URxvt*color21:                        #eeeeee
 
 Xcursor.size: 16W
 URxvt.scrollBar: false
-URxvt.font: xft:Hack:size=12, xft:SauceCodePro Nerd Font:size=10, xft:Source Han Serif TW:size=12, xft:Source Han Serif CN:size=12, xft:Symbola:size=14
+URxvt.font: xft:Hack:size=12, xft:SauceCodePro Nerd Font:size=10, xft:WenQuanYi Micro Hei Mono:size=12, xft:Source Han Serif TW:size=12, xft:Source Han Serif CN:size=12, xft:Symbola:size=14
 
 !URxvt*font: xft:hack:size=11, xft:symbola:size=11
 
@@ -74,7 +74,9 @@ URxvt.url-launcher: /usr/bin/firefox
 URxvt*letterSpace: 0
 
 URxvt*loginShell:  true
-URxvt*fading:  30
+
+! unfocused 的時候淡出
+URxvt*fading: 0
 
 URxvt.internalBorder: 0
 URxvt.externalBorder: 0
@@ -89,8 +91,8 @@ URxvt*.termName: screen-256color
 !urxvt*background: rgba:0000/0000/0200/c800
 
 ! Fake transparency
-!urxvt*transparent: true
-!urxvt*shading: 20
+urxvt*transparent: true
+urxvt*shading: 20
 !URxvt*.blurRadius: 50
 
 !URxvt*dynamicColors: on
