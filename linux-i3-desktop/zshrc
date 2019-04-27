@@ -94,6 +94,8 @@ alias s="subl ."
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias rmt="mv $@ ~/Trash" 
 alias open="xdg-open"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 
 alias td="todolist"
