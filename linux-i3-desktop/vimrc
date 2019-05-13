@@ -143,3 +143,11 @@ set foldlevelstart=99 "start file with all folds opened
 setlocal foldmethod=marker
 setlocal foldmarker={,}
 nnoremap <Space> za
+
+nmap [ :ALENext<CR>
+nmap ] :ALEPrevious<CR>
+autocmd QuitPre * if empty(&bt) | lclose | endif
+" nmap <C-[> :ALELast<CR>
+" nmap <C-]> :ALEFirst<CR>
+
+nnoremap <Leader>s :syntax sync fromstart<CR>
