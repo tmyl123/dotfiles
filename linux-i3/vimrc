@@ -111,6 +111,13 @@ map  <C-j> :tabp<CR>
 map  <C-h> :tabfirst<CR>
 map  <C-l> :tablast<CR>
 
+
+nmap [ :ALENext<CR>
+nmap ] :ALEPrevious<CR>
+autocmd QuitPre * if empty(&bt) | lclose | endif
+" nmap <C-[> :ALELast<CR>
+" nmap <C-]> :ALEFirst<CR>
+
 "au VimEnter *  NERDTree
 " autocmd VimEnter * NERDTree
 " autocmd TabEnter * NERDTree
