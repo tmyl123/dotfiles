@@ -266,7 +266,8 @@ exec_always gsettings set org.gnome.desktop.background show-desktop-icons false
 exec_always gsettings set org.nemo.desktop show-desktop-icons false
 
 exec_always --no-startup-id compton -f
-exec_always --no-startup-id greenclip daemon
+# exec_always --no-startup-id greenclip daemon
+exec_always --no-startup-id fcitx
 
 gaps inner 8
 gaps outer 8
