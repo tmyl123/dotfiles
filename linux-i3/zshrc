@@ -102,6 +102,7 @@ alias td="todolist"
 #alias curlt='curl -w "@/Users/user/Documents/curl-format.txt" -o /dev/null -s'
 alias curlt='curl -w "@/Users/user/Documents/curl-format.txt"'
 alias tc='clear; tmux clear-history'
+alias mux='tmuxinator'
 
 # For pure
   autoload -Uz promptinit
