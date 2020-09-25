@@ -12,6 +12,43 @@ rofi.line-margin:           0
 rofi.columns:               3 
 rofi.font:                  System San Francisco Display 28
 rofi.theme: ~/.config/rofi/custom-nord.rasi
+! ! special
+! *.foreground:   #d3d0c8
+! *.background:   #2d2d2d
+! *.cursorColor:  #d3d0c8
+! 
+! ! black
+! *.color0:       #2d2d2d
+! *.color8:       #747369
+! 
+! ! red
+! *.color1:       #f2777a
+! *.color9:       #f2777a
+! 
+! ! green
+! *.color2:       #99cc99
+! *.color10:      #99cc99
+! 
+! ! yellow
+! *.color3:       #ffcc66
+! *.color11:      #ffcc66
+! 
+! ! blue
+! *.color4:       #6699cc
+! *.color12:      #6699cc
+! 
+! ! magenta
+! *.color5:       #cc99cc
+! *.color13:      #cc99cc
+! 
+! ! cyan
+! *.color6:       #66cccc
+! *.color14:      #66cccc
+! 
+! ! white
+! *.color7:       #d3d0c8
+! *.color15:      #f2f0ec
+
  
 URxvt*background:                     #151718
 URxvt*foreground:                     #d6d6d6
@@ -62,7 +99,16 @@ URxvt*color21:                        #eeeeee
 
 Xcursor.size: 16W
 URxvt.scrollBar: false
-URxvt.font: xft:Hack:size=8, xft:SauceCodePro Nerd Font:size=5, xft:WenQuanYi Micro Hei Mono:size=8, xft:Source Han Serif TW:size=8, xft:Source Han Serif CN:size=8, xft:Symbola:size=14
+! URxvt.font: xft:Hack:size=8, xft:SauceCodePro Nerd Font:size=5, xft:WenQuanYi Micro Hei Mono:size=8, xft:Source Han Serif TW:size=8, xft:Source Han Serif CN:size=8, xft:Symbola:size=14
+URxvt.font: \
+            xft:Hack:size=8,\
+            xft:SauceCodePro Nerd Font:size=5,\
+            xft:FontAwesome:size=8,\
+            xft:WenQuanYi Micro Hei Mono:size=8,\
+            xft:Source Han Serif TW:size=8,\
+            xft:Source Han Serif CN:size=8,\
+            xft:Symbola:size=14,\
+            xft:Braille:size=14
 
 !URxvt*font: xft:hack:size=11, xft:symbola:size=11
 
@@ -77,7 +123,8 @@ URxvt*fading:  30
 URxvt.internalBorder: 0
 URxvt.externalBorder: 0
 
-Xft.dpi: 276
+! Xft.dpi: 276
+Xft.dpi: 283
 ! ranger image preview need this
 URxvt*.termName: screen-256color
 !Urxvt.letterSpacing: -1

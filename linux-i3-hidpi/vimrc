@@ -1,108 +1,163 @@
-syntax on
-set background=dark
-"colorscheme gruvbox
+""""""""""
+" 基礎配置
+""""""""""
 
-set backspace=2
-set laststatus=2
-set encoding=utf-8
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
+syntax on " 支持語法高亮
+set backspace=2 " 映射backspace, 適用於MAC
+set laststatus=2 " 永遠開啟狀態列
+set encoding=utf-8 " 支持utf8
 set termencoding=utf-8
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color " 支持256色
 set t_Co=256
-set noautoindent
-set number
-set incsearch
-set cursorline
-set tabstop=2
-set hlsearch
+set noautoindent " 關閉自動縮排
+set number " 開啟行數
+set hlsearch " 高亮搜索
+set incsearch " 開啟全域搜索
+set ignorecase " 搜索無視大小寫
+set cursorline " 高亮所在行
+set expandtab " tab 轉為空格
+set tabstop=2 " tab 輸出兩個空格
+set mouse=a " 支持滑鼠
+set wildmenu " 指令提示菜單
+" au BufRead,BufNewFile *.vue set filetype=html " 以html來對待vue
 
-" tab 轉為空格
-set expandtab
+"-- 摺疊配置 --
+set foldcolumn=1
+set foldlevelstart=99
+setlocal foldmethod=marker
+setlocal foldmarker={,}
+nnoremap <Space> za " 使用空白件折疊
 
-" tab 輸出兩個空格
-set tabstop=2
 
-" 縮排為兩個空格
-set shiftwidth=4
+""""""""""
+" Vundle配置
+""""""""""
 
-"for highlight group
-highlight Search ctermfg=0 ctermbg=226
-hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
-hi SignatureMarkText ctermfg=167
-
-set ignorecase
-set mouse=a
-
-"this part is the config of vundle
-set nocompatible              " required
-filetype off                  " required
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-surround'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'prettier/vim-prettier'
-Plugin 'chrisbra/Colorizer'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'kien/ctrlp.vim'
-"Plugin 'scrooloose/syntastic'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'w0rp/ale'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'mkitt/tabline.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'joshdick/onedark.vim'
+" 插件
+Plugin 'gmarik/Vundle.vim' " 插件管理器本人
+Plugin 'mattn/emmet-vim' " 快速插入html
+Plugin 'tpope/vim-surround' " 快速包圍
+Plugin 'chrisbra/Colorizer' " 顏色提示
+Plugin 'scrooloose/nerdtree' " 樹形目錄
+Plugin 'jistr/vim-nerdtree-tabs' " 樹型目錄強化
+Plugin 'jiangmiao/auto-pairs' " 自動補全對稱符
+Plugin 'mkitt/tabline.vim' " tab頁籤
+Plugin 'itchyny/lightline.vim' " 下方狀態列表
+Plugin 'scrooloose/nerdcommenter' " 快速註解
+Plugin 'joshdick/onedark.vim' " vim 主題
+Plugin 'Glench/Vim-Jinja2-Syntax' " python Jinja 模塊語法高亮
+Plugin 'chr4/nginx.vim' " nginx 語法高亮
+Plugin 'mboughaba/i3config.vim' " i3wm 語法高亮
+Plugin 'robbles/logstash.vim'
 
+Plugin 'ryanoasis/vim-devicons' " 目錄icon
+" 系統字體需要支持特殊字元, 推薦nerdfonts
+
+Plugin 'prettier/vim-prettier' " 一鍵排版
+" 需安裝prettier, npm install -g prettier
+
+Plugin 'w0rp/ale' " 代碼錯誤提示
+" 需安裝linter, 這邊使用jshint; npm install -g jshint
+" jshint 配置參考: https://github.com/victorporof/Sublime-JSHint#using-your-own-jshintrc-options
+
+" Plugin 'Valloric/YouCompleteMe' " 補全提示
+" vim 需要支持python
+" 安裝方式: cd ~/.vim/bundle/YouCompleteMe &&  python3 install.py --ts-completer
+
+Plugin 'neoclide/coc.nvim'
+
+Plugin 'wincent/terminus' " 更換游標, 自動 set paste
+" Plugin 'junegunn/vim-peekaboo' " 列出複製的 register
+
+Plugin 'posva/vim-vue'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+filetype plugin indent on
+
+""""""""""
+" 插件配置
+""""""""""
+let g:prettier#config#tab_width = '4'
+
+" onedark.vim override: Don't set a background color when running in a terminal;
+" just use the terminal's background color
+" `gui` is the hex color code used in GUI mode/nvim true-color mode
+" `cterm` is the color code used in 256-color mode
+" `cterm16` is the color code used in 16-color mode
+if (has("autocmd") && !has("gui_running"))
+  augroup colorset
+    autocmd!
+    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
+  augroup END
+
+  " 防止主題更換 cursorLine, 這邊配置為底線
+  augroup CustomCursorLine
+    au!    
+    au ColorScheme * :hi clear CursorLine
+    au ColorScheme * :hi! CursorLine gui=underline cterm=underline
+  augroup END
+endif
+
+if has("termguicolors")
+    " fix bug for vim
+    set t_8f=[38;2;%lu;%lu;%lum
+    set t_8b=[48;2;%lu;%lu;%lum
+
+    " enable true color
+    set termguicolors
+endif
+
+colorscheme onedark " vim 主題
+
+" -- lightline 主題 --
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+" -- ALE 配置 --
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
 let g:ale_open_list = 1
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" [ 跳至下一個錯誤提示
+" ] 跳至前一個錯誤提示
+nmap [ :ALENext<CR>
+nmap ] :ALEPrevious<CR>
+" nmap <C-[> :ALELast<CR>
+" nmap <C-]> :ALEFirst<CR>
 
-colorscheme onedark
 
-" Custom hotkeys
-" remap breakline
-map <C-m> :%s/<C-v><C-m>/\r/g<CR>
-
-" NERDTree
+" -- NERDTree 配置 --
 map <C-n> :NERDTreeToggle<CR>
-" let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 let NERDTreeShowHidden=1
 let NERDTreeWinSize=31
 let g:nerdtree_tabs_open_on_console_startup=1
-" let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 let NERDTreeShowBookmarks=1
-
-" JsBeautify
-map <C-b> :call JsBeautify()<cr>
-
-au BufRead,BufNewFile *.vue set filetype=html
-
-"map <C-n> :NERDTreeToggle<CR>
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" autocmd QuitPre * if empty(&bt) | lclose | endif
-
+" let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 let NERDTreeQuitOnOpen=0
-
-let g:NERDTreeChDirMode       = 2
-let g:ctrlp_working_path_mode = 'rw'
-
-" 使用空白開啟資料夾
+let g:NERDTreeChDirMode=2
 let NERDTreeMapActivateNode='<space>'
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCompactSexyComs = 1
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" 沒有文件開啟的時候關閉nerdtree
+autocmd QuitPre * if empty(&bt) | lclose | endif
 
+" -- 分頁快捷鍵配置 --
+" Ctrl + t 開啟分頁
+" Ctrl + x 關閉分頁
+" Ctrl + hjkl 切換分頁
 map  <C-t> :tabnew<CR>
 map  <C-x> :tabclose<CR>
 map  <C-k> :tabn<CR>
@@ -110,25 +165,38 @@ map  <C-j> :tabp<CR>
 map  <C-h> :tabfirst<CR>
 map  <C-l> :tablast<CR>
 
-"au VimEnter *  NERDTree
-" autocmd VimEnter * NERDTree
-" autocmd TabEnter * NERDTree
-" autocmd BufEnter * NERDTreeMirror
-" hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
-" hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
-" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+" -- 其他自定義映射 --
+" 全局替換換行符, Mac使用者可能會用到
+map <C-m> :%s/<C-v><C-m>/\r/g<CR>
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+" 使用 \ 和 - 分屏
+" Ctrl w + \ 垂直分屏
+" Ctrl w + - 水平分屏
+nnoremap <C-w>\ <C-w>v
+nnoremap <C-w>- <C-w>s
 
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDCompactSexyComs = 1
+" 快速重新語法高亮, 對於vue很有用
+nnoremap <Leader>s :syntax sync fromstart<CR>
+nnoremap <Leader>g :GitGutterLineHighlightsToggle<CR> 
 
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-    \ 'AcceptSelection("t")': ['<cr>'],
-    \ }
+nnoremap <Leader>c :ColorToggle<CR>
+xnoremap p pgvy
 
-set wildmenu
+set updatetime=100
+
+nmap { <Plug>(GitGutterNextHunk)
+nmap } <Plug>(GitGutterPrevHunk)
+
+map <C-p> :w<CR>:!vueTemplateToPug -p -f %<CR>
+
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
